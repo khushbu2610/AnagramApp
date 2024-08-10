@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>Anagram App by Kamal Sir</title>
+<style>
+*{font-size:40px; font-family:Calibri;}
+body{background-color:lightblue;}
+</style>
+</head>
+<body>
+<center>
+<h1>Anagram App</h1>
+<form onsubmit="show()">
+<input type="text" id ="name1" placeholder="Enter the first word"/>
+<br/><br/>
+<input type="text" id ="name2" placeholder="Enter the second word"/>
+<br/><br/>
+<input type="submit"/>
+
+</form>
+<h2 id="msg"/>
+
+<script>
+function show(){
+event.preventDefault();
+let name1 = document.getElementById("name1");
+let name2 = document.getElementById("name2");
+let msg = document.getElementById("msg");
+
+if(name1.value===""){
+alert("You did not enter your first word");
+msg.innerHTML="";
+name.focus();
+return;
+}
+
+if(name2.value === ""){
+alert("You did not enter your second word");
+msg.innerHTML="";
+name.focus();
+return;
+}
+
+if(name1.value.trim()==="" || name2.value.trim()===""){
+alert("Words cannot be blank spaces ");
+msg.innerHTML="";
+name.value="";
+name.focus();
+return;
+}
+
+if( (!name1.value.match(/^[A-Za-z ]+$/)) || (!name2.value.match(/^[A-Za-z ]+$/))){
+alert("Entered words should contain only alphabets");
+msg.innerHTML="";
+name.value="";
+name.focus();
+return;
+}
+
+let n1 = name1.value;
+let s1 =n1.split("").sort().join("");
+
+let n2 = name2.value;
+let s2 =n2.split("").sort().join("");
+
+if(s1=== s2){
+msg.innerHTML= "They are Anagrams";
+}
+else{
+msg.innerHTML= "They are not an Anagrams";
+}
+}
+
+</script>
+</center>
+</body>
+</html>
